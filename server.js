@@ -32,21 +32,21 @@ var server = http.createServer(function(request, response){
 
 
   console.log('HTTP 路径为\n' + path)
-    if(path == '/style'){
+    if(path == '/style.css'){
         response.setHeader('Content-Type', 'text/css; charset=utf-8')
         response.write('body{ background-color: #303052; } img { width: 550px; height: 400px; position: absolute; left: 50%; top: 50%; transform: translate( -50%,-50% ); }')
         response.end()
-    }else if(path == '/script'){
+    }else if(path == '/main.js'){
         response.setHeader('Content-Type', 'text/javascript; charset=utf-8')
         response.write('alert("您好，尊敬的用户！")')
         response.end()
     }else if(path == '/'){
         response.setHeader('Content-Type', 'text/html; charset=utf-8')
         response.write('<!DOCTYPE html>\n<html>\n'  +
-            '<head>\n<title>饥人谷</title>\n<link rel="stylesheet" href="/style">\n' +
+            '<head>\n<title>饥人谷</title>\n<link rel="stylesheet" href="/style.css">\n' +
             '</head>\n<body>\n'  +
             '<img src="https://jirengu.com/addons/theme/stv1/_static/app/index-new/imgs/logo.png" alt = "饥人谷">\n' +
-            '<script src="/script"></script>' +
+            '<script src="/main.js"></script>' +
             '</body>\n</html>\n')
         response.end()
     }else{
