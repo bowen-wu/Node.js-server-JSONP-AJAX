@@ -6,9 +6,9 @@
 
 在 Git Bash 命令行中输入 `node server.js 端口号` ，即可开启服务器，并监听当前的端口号。之后在浏览器中输入 `http://localhost:端口号/[ path ]` ,即可看到相应的信息。
 
-本服务器提供3个 `path` ,分别是 `/index`、`/style`、`/javascript` 
+本服务器提供3个 `path` ,分别是 `/`、`/style`、`/javascript` 
 
-`/index` 响应内容为 `HTML`
+`/` 响应内容为 `HTML`
 
 `/style` 响应内容为 `css`
 

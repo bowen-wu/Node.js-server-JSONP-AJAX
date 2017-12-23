@@ -34,23 +34,29 @@ var server = http.createServer(function(request, response){
   console.log('HTTP 路径为\n' + path)
     if(path == '/style'){
         response.setHeader('Content-Type', 'text/css; charset=utf-8')
-        response.write('body{background-color: #ddd;}h1{color: red;}')
+        response.write('body{ background-color: #303052; } img { width: 550px; height: 400px; position: absolute; left: 50%; top: 50%; transform: translate( -50%,-50% ); }')
         response.end()
     }else if(path == '/script'){
         response.setHeader('Content-Type', 'text/javascript; charset=utf-8')
-        response.write('alert("这是JS执行的")')
+        response.write('alert("您好，尊敬的用户！")')
         response.end()
-    }else if(path == '/index'){
+    }else if(path == '/'){
         response.setHeader('Content-Type', 'text/html; charset=utf-8')
-        response.write('<!DOCTYPE>\n<html>'  +
-            '<head><link rel="stylesheet" href="/style">' +
-            '</head><body>'  +
-            '<h1>你好</h1>' +
+        response.write('<!DOCTYPE html>\n<html>\n'  +
+            '<head>\n<title>饥人谷</title>\n<link rel="stylesheet" href="/style">\n' +
+            '</head>\n<body>\n'  +
+            '<img src="https://jirengu.com/addons/theme/stv1/_static/app/index-new/imgs/logo.png" alt = "饥人谷">\n' +
             '<script src="/script"></script>' +
-            '</body></html>')
+            '</body>\n</html>\n')
         response.end()
     }else{
         response.statusCode = 404
+        response.setHeader('Content-Type', 'text/html; charset=utf-8')
+        response.write('<!DOCTYPE html>\n<html>\n'  +
+            '<head>\n<title> NOT FOUND </title>\n' +
+            '<style type = "text/css">\nbody {\nbackground: url(http://img.zcool.cn/community/015c4357764df30000012e7e576eae.jpg) no-repeat;\nbackground-size : cover;\n }\n h1 {\n color: red; \n}\n</style>\n' +
+            '</head>\n<body>\n'  +
+            '</body>\n</html>\n')
         response.end()
     }
 
