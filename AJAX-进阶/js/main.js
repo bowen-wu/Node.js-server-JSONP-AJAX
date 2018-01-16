@@ -1,9 +1,15 @@
 window.onload = function () {
     let button = document.getElementById('button')
     window.jQuery = function(){}
-    window.jQuery.ajax = (options) => {
+    window.jQuery.ajax = function(options){
+        let url
+        if(arguments.length === 1){
+            url = options.url
+        }else if(arguments.length === 2){
+            url = arguments[0]
+            options = arguments[1]
+        }
         let method = options.method
-        let url = options.url
         let body = options.body
         let successFn = options.successFn
         let errorFn = options.errorFn
@@ -26,14 +32,12 @@ window.onload = function () {
  
     button.addEventListener('click', (event) => {
         //window.jQuery.ajax()
-        let options = {
+        $.ajax('http://127.0.0.1:8080/xxx',{
             method: 'GET',                     
-            url: 'http://127.0.0.1:8080/xxx',
             body: 'a=1&b=2',                  
             successFn: successFn,
             errorFn: errorFn
-        }
-        $.ajax(options)
+        })
     })
 
     function successFn(event){
