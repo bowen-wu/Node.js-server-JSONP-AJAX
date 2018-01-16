@@ -12,5 +12,15 @@
 
 6. 如果不实现传入不定个参数，还可以进一步使用 ES6 解构赋值优化。[代码地址](https://github.com/bowen-wu/Node.js-server-JSONP-AJAX/tree/88436fc2378cec3a814a96cc3260a5de133038da/AJAX-%E8%BF%9B%E9%98%B6)
 
-7. 使用 Promise 规范进行优化，` return new Promise(function(resolve,reject){}) `，成功 === 调用 resolve，失败 === 调用 reject，之后在调用时使用 ` .then ` 方法。[代码地址]()
+7. 使用 Promise 规范进行优化，` return new Promise(function(resolve,reject){}) `，成功 === 调用 resolve，失败 === 调用 reject，之后在调用时使用 ` .then ` 方法。[代码地址](https://github.com/bowen-wu/Node.js-server-JSONP-AJAX/tree/1ea0e7728b98f008f077e7b7f77b2eb80ec77e6b/AJAX-%E8%BF%9B%E9%98%B6)
+
+8. Promise 实现原理
+    ```
+    window.Promise = function(fn){
+      // ......
+       return {
+            then: function(){}
+       }
+    }
+    ```
 

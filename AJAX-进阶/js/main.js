@@ -44,15 +44,6 @@ window.onload = function () {
                 console.log(event)
             }
             )
-        // }).then(successFn,errorFn)
     })
 
-    // function successFn(event){
-    //     console.log('success')
-    //     console.log(event)
-    // }
-    // function errorFn(event){
-    //     console.log('error')
-    //     console.log(event)
-    // }
 }
