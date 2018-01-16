@@ -1,7 +1,13 @@
 window.onload = function () {
     let button = document.getElementById('button')
     window.jQuery = function(){}
-    window.jQuery.ajax = (method,url,body,successFn,errorFn) => {
+    window.jQuery.ajax = (options) => {
+        let method = options.method
+        let url = options.url
+        let body = options.body
+        let successFn = options.successFn
+        let errorFn = options.errorFn
+
         let request = new XMLHttpRequest()
         request.open(method, url)  
         request.onreadystatechange = () => {              
@@ -18,27 +24,24 @@ window.onload = function () {
     }
     window.$ = window.jQuery
  
-    button.addEventListener('click', () => {
+    button.addEventListener('click', (event) => {
         //window.jQuery.ajax()
-        $.ajax(
-            'GET',                      // method
-            'http://127.0.0.1:8080/xxx',// url
-            'a=1&b=2',                  // body
-            (event) => {                // successFn
-                console.log('sucess')
-                console.log(event)
-            },
-            (event) => {                // errorFn
-                console.log(event)
-            }
-        )
+        let options = {
+            method: 'GET',                     
+            url: 'http://127.0.0.1:8080/xxx',
+            body: 'a=1&b=2',                  
+            successFn: successFn,
+            errorFn: errorFn
+        }
+        $.ajax(options)
     })
 
-    function successFn(){
+    function successFn(event){
         console.log('success')
-        console.log()
+        console.log(event)
     }
-    function errorFn(){
+    function errorFn(event){
         console.log('error')
+        console.log(event)
     }
 }
