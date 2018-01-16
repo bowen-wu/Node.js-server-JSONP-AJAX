@@ -22,6 +22,6 @@
 `/main.js` 响应内容为 `javascript`
 
 
-### [创建过程](https://www.jianshu.com/p/5faab33f19cd)
+### [创建过程](https://www.jianshu.com/p/19275eecb1b1)
 
 
