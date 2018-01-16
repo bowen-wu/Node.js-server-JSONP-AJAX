@@ -1,15 +1,15 @@
 window.onload = function () {
     let button = document.getElementById('button')
     window.jQuery = function(){}
-    window.jQuery.ajax = function(options){
-        let url
-        if(arguments.length === 1){
-            url = options.url
-        }else if(arguments.length === 2){
-            url = arguments[0]
-            options = arguments[1]
-        }
-        let {method,body,headers,successFn,errorFn} = options   // ES6 解构赋值 优化代码
+    window.jQuery.ajax = function({method,url,body,headers,successFn,errorFn}){
+        // let url
+        // if(arguments.length === 1){
+        //     url = options.url
+        // }else if(arguments.length === 2){
+        //     url = arguments[0]
+        //     options = arguments[1]
+        // }
+        // let {method,body,headers,successFn,errorFn} = options   // ES6 解构赋值 优化代码
         let request = new XMLHttpRequest()
         request.open(method, url)
         for(let key in headers){
@@ -32,9 +32,10 @@ window.onload = function () {
  
     button.addEventListener('click', (event) => {
         //window.jQuery.ajax()
-        $.ajax('http://127.0.0.1:8080/xxx',{
+        $.ajax({
             method: 'GET',
             body: 'a=1&b=2',
+            url: 'http://127.0.0.1:8080/xxx',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'who': 'bowen'
