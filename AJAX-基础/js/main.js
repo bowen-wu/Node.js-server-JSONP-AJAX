@@ -15,11 +15,15 @@ window.onload = function () {
                     let contentType = request.getResponseHeader('Content-Type')
                     let allSecondContent = request.getAllResponseHeaders()
                     let responseText = request.responseText
-                    console.log('status', status)
-                    console.log('statusText', statusText)
-                    console.log('contentType', contentType)
-                    console.log('allSecondContent', allSecondContent)
-                    console.log('responseText', responseText)
+                    console.log('status：', status)
+                    console.log('statusText：', statusText)
+                    console.log('contentType：', contentType)
+                    console.log('allSecondContent：', allSecondContent)
+                    console.log('responseText：', responseText)
+                    console.log('responseText 的类型：',typeof responseText)
+                    let obj = window.JSON.parse(responseText)
+                    console.log('responseText 使用 JSON.parse 之后的类型：',typeof obj)
+                    console.log('使用 JSON.parse 之后的数据：',obj)
                 } else if (request.status >= 400) {
                     console.log('请求失败')
                 }
