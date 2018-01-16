@@ -6,6 +6,9 @@
 
 3. 将封装的 window.jQuery.ajax 进行代码优化（给参数命名）。由于传入参数过多，将其参数设置为有结构的数据 ==> 对象，[代码地址](https://github.com/bowen-wu/Node.js-server-JSONP-AJAX/tree/80c6de9166b9efb60b2c34a5fb115aa9d0f61fcf)
 
-4. 实现传入不定个参数的优化。既可以传入一个对象，也可以传入 url + 对象。[代码地址]()。此时由于要使用 arguments ，所以不能使用箭头函数。
+4. 实现传入不定个参数的优化。既可以传入一个对象，也可以传入 url + 对象。[代码地址](https://github.com/bowen-wu/Node.js-server-JSONP-AJAX/tree/3ca84506652fa89c4f3854da77420d7f6094e240)。此时由于要使用 arguments ，所以不能使用箭头函数。
+
+5. 优化代码，使用 ES6 解构赋值达到优化代码的目的，并增加 request.setRequestHeader() 功能。[代码地址]()。
+**说明：**如果不实现传入不定个参数，还可以进一步优化。[代码地址]()
 
 

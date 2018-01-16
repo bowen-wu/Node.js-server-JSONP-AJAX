@@ -9,13 +9,13 @@ window.onload = function () {
             url = arguments[0]
             options = arguments[1]
         }
-        let method = options.method
-        let body = options.body
-        let successFn = options.successFn
-        let errorFn = options.errorFn
-
+        let {method,body,headers,successFn,errorFn} = options   // ES6 解构赋值 优化代码
         let request = new XMLHttpRequest()
-        request.open(method, url)  
+        request.open(method, url)
+        for(let key in headers){
+            let value = headers[key]
+            request.setRequestHeader(key,value)
+        }
         request.onreadystatechange = () => {              
             if (request.readyState === 4) {                 
                 if (request.status >= 200 && request.status < 300) {  
@@ -33,8 +33,12 @@ window.onload = function () {
     button.addEventListener('click', (event) => {
         //window.jQuery.ajax()
         $.ajax('http://127.0.0.1:8080/xxx',{
-            method: 'GET',                     
-            body: 'a=1&b=2',                  
+            method: 'GET',
+            body: 'a=1&b=2',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'who': 'bowen'
+            },
             successFn: successFn,
             errorFn: errorFn
         })
